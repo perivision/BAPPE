@@ -1,0 +1,25 @@
+{% include "header.html" %}
+
+    <table>
+    {% csrf_token %}
+    <tr>
+    	<th>Name</th>
+    	<th>Email</th>
+    	<th>Phone</th>
+    	<th>Role</th>
+    	<th>Location</th>
+    	<th>Slack ID</th>
+    </tr>
+    {% for data in items %}
+    	<tr>
+	    <td> {{ data.name }} </td>
+	    <td> {{ data.email }} </td>
+	    <td> {{ data.phone }} </td>
+	    <td> {{ data.role }} </td>
+	    <td> {{ data.location }} </td>
+	    <td> {{ data.slackId }} </td>
+	    </tr>
+    {% endfor %}
+    </table>
+
+{% include "footer.html" %}

@@ -1,0 +1,23 @@
+{% include "header.html" %}
+
+	<table>
+		<tr>
+			<th>Count</th>
+			<th>Location</th>
+			<th>Member</th>
+			<th>Customer</th>
+			<th>Date</th>
+		</tr>
+    {% csrf_token %}
+    {% for data in items %}
+    <tr>
+	    <td> {{ data.item_count }} </td>
+	    <td> {{ data.location }} </td>
+	    <td> {{ data.member }} </td>
+	    <td> {{ data.customer }} </td>
+	    <td> {{ data.date }} </td>
+	  </tr>
+    {% endfor %}
+  </table>
+
+{% include "footer.html" %}

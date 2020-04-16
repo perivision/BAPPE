@@ -1,0 +1,31 @@
+{% include "header.html" %}
+
+	<table>
+    {% csrf_token %}
+    <tr>
+    	<th>Name</th>
+			<th>Count</th>
+			<th>Location</th>
+			<th>Count Type</th>
+			<th>Action Date</th>
+			<th>Action type</th>
+			<th>Author</th>
+			<th>Contact</th>
+			<th>Item in transit?</th>
+    </tr>
+    {% for data in items %}
+    	<tr>
+	    <td> {{ data.item_name }} </td>
+	    <td> {{ data.item_count }} </td>
+	    <td> {{ data.item_location }} </td>
+	    <td> {{ data.item_count_type }} </td>
+	    <td> {{ data.action_date }} </td>
+	    <td> {{ data.action_type }} </td>
+	    <td> {{ data.action_author }} </td>
+	    <td> {{ data.action_contact }} </td>
+	    <td> {{ data.item_in_transit }} </td>
+	    </tr>
+    {% endfor %}
+	</table>
+
+{% include "footer.html" %}

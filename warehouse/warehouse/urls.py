@@ -33,6 +33,7 @@ urlpatterns = [
   path('admin/', admin.site.urls),
   path('customer/', customer, name='customer'),
   path('dashboard/', dashboard, name='dashboard'),
+  path('editInventory/', editInventory, name='editInventory'),
   path('inTransit/', inTransit, name='intransit'),
   path('logout/', logoutUser, name='logoutUser'),
   path('login/', getLogin, name='login'),

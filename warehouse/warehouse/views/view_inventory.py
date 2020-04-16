@@ -9,6 +9,7 @@ from ..customModels.model_inventory import InventoryModel
 
 @login_required
 def addInventory(request):
+  # TODO add update here also
   if request.method == 'POST':
     form = InventoryForm(request.POST)
     if form.is_valid():
@@ -26,13 +27,30 @@ def addInventory(request):
       return HttpResponseRedirect('/dashboard')
   else:
     form = InventoryForm()
-
   return render(request, 'inventory.html', {'form': form})
+
+
+@login_required
+def editInventory(request, itemId):
+  if request.method == 'GET':
+    items = InventoryModel.objects.get(itemId)
+    form = InventoryForm(initial= {
+      'item_id': items.item_id,
+      'item_name': items.item_name,
+      'item_count': items.item_count,
+      'item_location': items.item_location,
+      'item_count_type': items.item_count_type,
+      'action_date': items.action_date,
+      'action_type': items.action_type,
+      'action_author': items.action_author,
+      'action_contact': items.action_contact,
+      'item_in_transit': items.item_in_transit
+    });
+    return render(request, 'showinventory.html', {'form': form})
 
 @login_required
 def viewInventory(request):
   if request.method == 'GET':
-    # TODO show inventory
     items = InventoryModel.objects.all()
     return render(request, 'showinventory.html', {'items': items})
 

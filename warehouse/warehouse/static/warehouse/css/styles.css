@@ -1,3 +1,11 @@
+form {
+	display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  padding: 20px 20px;
+  margin: 0 auto;
+}
+
 tr, th, td {
 	border: 1px solid #ddd;
   padding: 8px;

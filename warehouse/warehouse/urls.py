@@ -33,7 +33,7 @@ urlpatterns = [
   path('admin/', admin.site.urls),
   path('customer/', customer, name='customer'),
   path('dashboard/', dashboard, name='dashboard'),
-  path('editInventory/', editInventory, name='editInventory'),
+  path('editInventory/<str:itemId>', editInventory, name='editInventory'),
   path('inTransit/', inTransit, name='intransit'),
   path('logout/', logoutUser, name='logoutUser'),
   path('login/', getLogin, name='login'),
@@ -44,4 +44,5 @@ urlpatterns = [
   path('viewCustomers/', viewCustomers, name='viewCustomers'),
   path('viewInventory/', viewInventory, name='viewInventory'),
   path('viewMembers/', viewMembers, name='viewMembers'),
+  path('updateInventory/<str:itemId>', updateInventory, name='updateInventory'),
 ]

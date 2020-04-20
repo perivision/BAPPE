@@ -71,9 +71,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'warehouse.wsgi.application'
 
-# custom backend for auth
-#AUTHENTICATION_BACKENDS = ['warehouse.backend.CustomBackend']
-
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 

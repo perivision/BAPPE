@@ -1,0 +1,67 @@
+{% include "header.html" %}
+{% csrf_token %}
+<p>Dashboard</p>
+<a href="/logout/">Logout</a>
+<div>
+	<h3>Requests</h3>
+	<a href="/showRequests/">
+		<table>
+			<tr>
+				<th>Count</th>
+				<th>Location</th>
+				<th>Member</th>
+				<th>Customer</th>
+				<th>Date</th>
+			</tr>
+	    {% csrf_token %}
+	    {% for data in itemRequests %}
+	    <tr>
+		    <td> {{ data.item_count }} </td>
+		    <td> {{ data.location }} </td>
+		    <td> {{ data.member }} </td>
+		    <td> {{ data.customer }} </td>
+		    <td> {{ data.date }} </td>
+		  </tr>
+	    {% endfor %}
+	  </table>
+	</a>
+</div>
+
+<div>
+	<h3>Inventory</h3>
+	<a href="/viewInventory/">
+		<table>
+	    {% csrf_token %}
+	    <tr>
+	    	<th>Name</th>
+				<th>Count</th>
+				<th>Location</th>
+				<th>Count Type</th>
+				<th>Action Date</th>
+				<th>Action type</th>
+				<th>Author</th>
+				<th>Contact</th>
+				<th>Item in transit?</th>
+	    </tr>
+	    {% for data in inventory %}
+	    	<tr>
+		    <td> {{ data.item_name }} </td>
+		    <td> {{ data.item_count }} </td>
+		    <td> {{ data.item_location }} </td>
+		    <td> {{ data.item_count_type }} </td>
+		    <td> {{ data.action_date }} </td>
+		    <td> {{ data.action_type }} </td>
+		    <td> {{ data.action_author }} </td>
+		    <td> {{ data.action_contact }} </td>
+		    <td> {{ data.item_in_transit }} </td>
+		    </tr>
+	    {% endfor %}
+		</table>
+	</a>
+</div>
+
+<div>
+<a href="/request/">Request Items</a>
+<a href="/addInventory/">Add Items</a>
+</div>
+{% include "footer.html" %}
